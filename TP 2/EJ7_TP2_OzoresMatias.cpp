@@ -12,7 +12,7 @@ int main(){
 	// Declaracion de variables | Esto esta terminado
 	
 	struct conjunto palabras[5];
-	int x,y,g,i,letra=0,espaciosCadena=0,mayorCadena=0,ubicacionInicialMayorCadena,longitud=0,romper=0;
+	int x,y,letra=0,espaciosCadena=0,mayorCadena=0,ubicacionInicialMayorCadena,longitud=0;
 	
 	// Ingreso de datos | Esto esta terminado
 	
@@ -40,31 +40,15 @@ int main(){
 	
 	// Saca las mayores cantidades | NO TERMINADO falta: que en cualquier parte de la palabra busque la secuencia mas larga que coincida con todas las palabras.
 	for(x=0;x<longitud;x++){
-		for(y=0;y<longitud;y++){
-			if(palabras[0].palabra[x] == palabras[1].palabra[y]){ 
-				for(z = 0; z < longitud; z++){
-					if(palabras[1].palabra[y] == palabras[2].palabra[z]){
-						for(g = 0; g < longitud; g++){
-							if(palabras[2].palabra[z] == palabras[3].palabra[g]){
-								for(i = 0; i < longitud; i++){
-									if(palabras[3].palabra[g] == palabras[4].palabra[i]){
-										cadena[espaciosCadena][0]+= 1;
-										cadena[espaciosCadena][1] = x;		
-									}
-								}
-							}
-						}	
-					}
-					
-				}
-				
-				
-	
+		for(y=x;y<longitud;y++){
+			if((palabras[0].palabra[y] == palabras[1].palabra[y]) && (palabras[1].palabra[y] == palabras[2].palabra[y]) && (palabras[2].palabra[y] == palabras[3].palabra[y]) && (palabras[3].palabra[y] == palabras[4].palabra[y])){ 
+				cadena[espaciosCadena][0]+= 1;
+				cadena[espaciosCadena][1] = x;		
 			}
 			else{
 				espaciosCadena++;
 				break;
-			}					
+			}		
 		}
 	}
 		
@@ -82,7 +66,7 @@ int main(){
 	
 	for(x = ubicacionInicialMayorCadena; x < mayorCadena; x++){
 	    secuencia[z] = palabras[0].palabra[x];
-	    z++; 
+	    z++; // Incrementa z para avanzar en el array secuencia
 	}
 	
 	secuencia[z] = '\0';
