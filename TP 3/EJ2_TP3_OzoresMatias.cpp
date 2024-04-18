@@ -25,7 +25,7 @@ int main(){
 	
 	sumaPromedio(arreglo,&longitud,&sumado,&promediado);
 	printf("El resultado de su suma es: %d\n",sumado);
-	printf("El promedio es: %2.f\n",promediado);
+	printf("El promedio es: %.2f\n",promediado);
 
 	return 0;
 }
